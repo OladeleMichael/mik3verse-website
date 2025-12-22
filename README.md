@@ -1,5 +1,7 @@
 # MIK3VERSE Portfolio (Vite + React)
 
+**CI/CD Pipeline Enabled** - Automated testing and deployment with manual approval gates.
+
 This project is configured to run instantly with Vite.
 
 ## Scripts
