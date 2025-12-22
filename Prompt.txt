@@ -1,0 +1,310 @@
+Note: Keep all existing Implementation. Only add the new pages
+
+Project Overview
+Transform the existing single-page videography portfolio website into a multi-page platform called "Mik3verse" with a landing page that routes to three distinct portfolio sections, each maintaining design consistency while expressing unique niche-specific aesthetics.
+
+Current State
+✅ Fully functional single-page videography portfolio ("Mik3shotit")
+✅ Cyberpunk/sci-fi aesthetic with terminal fonts and neon glows
+✅ Sections: Hero, About, Services (with hover carousel), Pricing, Gallery, Contact
+✅ Responsive design with mobile optimization
+✅ Framer Motion animations throughout
+✅ SEO optimized with meta tags and sitemap
+Required Changes
+1. Create Landing Page ("Mik3verse")
+Purpose: Central hub that serves as the main entry point to three portfolio sub-sites
+
+Components Needed:
+
+Hero Section:
+
+Large "MIK3VERSE" title with terminal/neon aesthetic
+Tagline: "Creative • Technical • Physical" or similar
+Background: Subtle animated grid or particle system
+Three Navigation Buttons (Primary Feature):
+
+Button 1: "MIK3SHOTIT" → Videography/Photography Portfolio (existing)
+Button 2: "[PLACEHOLDER_TECH]" → Tech/IT Portfolio + CV Section
+Button 3: "[PLACEHOLDER_FITNESS]" → Fitness/Lifestyle Portfolio
+Button Design Requirements:
+
+3D Parallax Effect: Buttons should have depth and respond to mouse/scroll position
+
+Scroll-Reveal Animation: Buttons dramatically appear as user scrolls down
+
+Modern 3D Design Elements:
+
+Layered shadows for depth
+Tilt effect on hover (using mouse position)
+Perspective transforms (rotateX, rotateY)
+Smooth spring physics animations
+Gradient borders with animated glow
+Inner shadows and highlights for 3D appearance
+Interactive States:
+
+Idle: Subtle floating/breathing animation
+Hover: Lifts up (translateZ), tilts based on cursor position
+Click: Smooth transition/morph animation before navigation
+Recommended Technologies:
+
+Framer Motion for animations
+CSS 3D transforms (preserve-3d, perspective)
+Mouse tracking for parallax tilt effect
+Intersection Observer for scroll-reveal
+Layout:
+
+Full-screen landing page
+Buttons arranged vertically or in a grid (designer's choice)
+Each button should be substantial in size (200-300px height)
+Adequate spacing between buttons (80-120px gap)
+2. Routing Implementation
+Requirements:
+
+Use React Router (or similar) to create multi-page structure
+
+Routes needed:
+
+/ → Landing page (Mik3verse)
+/videography or /mik3shotit → Current videography portfolio
+/tech or /[placeholder-tech-name] → Tech/IT portfolio (to be developed)
+/fitness or /[placeholder-fitness-name] → Fitness portfolio (to be developed)
+Navigation Considerations:
+
+Add "Back to Mik3verse" button in header of sub-sites
+Maintain smooth page transitions
+Preserve scroll position behavior
+Update browser history correctly
+3. Tech/IT Portfolio Page ("[PLACEHOLDER_TECH]")
+Purpose: Showcase technical skills, projects, and professional experience
+
+Required Sections:
+
+Hero Section:
+
+Title with tech-inspired aesthetic
+Brief introduction
+CTA buttons (View Projects, Download CV)
+About/Skills Section:
+
+Professional summary
+Technical skills grid (languages, frameworks, tools)
+Animated skill bars or circular progress indicators
+Projects/Portfolio Section:
+
+Grid layout of tech projects
+Each project card should include:
+Project name
+Technologies used
+Brief description
+Live demo link (if applicable)
+GitHub link (if applicable)
+Screenshots or demo video
+Filter by technology/category
+CV/Resume Section (Distinct Area):
+
+Professional Experience timeline
+Education section
+Certifications list
+Download CV button (PDF format)
+Option to view inline or download
+Formatted professionally (can use different styling than main site)
+Contact Section:
+
+Similar to videography site but tech-focused
+LinkedIn, GitHub, email integration
+Design Direction:
+
+Base: Maintain cyberpunk/terminal aesthetic
+Unique Feel:
+More blues/cyans instead of amber/yellow
+Code editor-inspired elements
+Matrix-style effects or digital rain
+Terminal prompts showing code snippets
+Geometric shapes and circuit board patterns
+4. Fitness/Lifestyle Portfolio Page ("[PLACEHOLDER_FITNESS]")
+Purpose: Showcase fitness journey, lifestyle content, and wellness philosophy
+
+Required Sections:
+
+Hero Section:
+
+Dynamic title
+Motivational tagline
+Background: Fitness-related imagery or video
+About/Philosophy Section:
+
+Personal fitness journey
+Training philosophy
+Lifestyle approach
+Gallery/Content Section:
+
+Grid of fitness content (photos, videos)
+Categories: Workouts, Nutrition, Progress, Lifestyle
+Before/after comparisons (if applicable)
+Video demonstrations
+Programs/Services Section (if applicable):
+
+Training programs offered
+Coaching services
+Pricing information
+Blog/Articles Section (optional):
+
+Fitness tips
+Nutrition advice
+Lifestyle content
+Contact Section:
+
+Social media integration (Instagram, TikTok, etc.)
+Inquiry form
+Design Direction:
+
+Base: Maintain overall design language
+Unique Feel:
+Warmer colors (oranges, reds, energetic tones)
+Bold, strong typography
+High-energy animations
+Organic shapes vs. geometric
+More photography-focused (less tech aesthetic)
+Progress bars, stats, numbers prominently displayed
+5. Design Consistency Requirements
+Elements to Keep Consistent Across All Pages:
+
+Header/navigation structure (adjust content, keep layout)
+Footer design and layout
+Terminal font usage (VT323) for certain elements
+Card/section border treatments
+Button base styling
+Animation timing and easing curves
+Responsive breakpoints
+Color palette structure (different accent colors per niche)
+Scanline effects (where appropriate)
+Grid backgrounds
+Elements to Vary Per Page:
+
+Accent colors:
+Videography: Amber/yellow-orange (#FFB400)
+Tech: Cyan/blue (#00D9FF or similar)
+Fitness: Orange/red (#FF6B35 or similar)
+Background imagery/themes
+Section-specific animations
+Content layout within sections
+Icon sets (camera icons vs. code icons vs. fitness icons)
+6. Technical Implementation Guidelines
+File Structure:
+src/
+├── App.jsx (Router setup)
+├── pages/
+│   ├── LandingPage.jsx (Mik3verse - NEW)
+│   ├── VideographyPage.jsx (Current App.jsx content)
+│   ├── TechPage.jsx (NEW - Tech portfolio)
+│   └── FitnessPage.jsx (NEW - Fitness portfolio)
+├── components/
+│   ├── landing/
+│   │   ├── LandingHero.jsx
+│   │   ├── Navigation3DButton.jsx (3D parallax buttons)
+│   │   └── ParticleBackground.jsx (optional)
+│   ├── tech/
+│   │   ├── TechHero.jsx
+│   │   ├── SkillsGrid.jsx
+│   │   ├── ProjectCard.jsx
+│   │   └── CVSection.jsx
+│   ├── fitness/
+│   │   ├── FitnessHero.jsx
+│   │   ├── TransformationGallery.jsx
+│   │   └── ProgramCard.jsx
+│   └── shared/
+│       ├── Header.jsx (update for multi-page)
+│       ├── Footer.jsx
+│       └── BackButton.jsx (NEW)
+Dependencies to Add:
+
+react-router-dom (v6+) for routing
+Consider react-tilt or custom hook for 3D tilt effect
+Consider framer-motion-3d for advanced 3D animations
+Animation Specifications for Landing Page Buttons:
+
+7. Content Placeholders Needed
+Tech Portfolio:
+
+Project images/videos (3-6 projects minimum)
+Skills list (10-15 technical skills)
+Professional experience data (2-3 positions)
+Education information
+CV/Resume PDF file
+Placeholder project descriptions
+Fitness Portfolio:
+
+Fitness photos/videos (8-12 items minimum)
+Workout demonstration videos (optional)
+Progress photos (if applicable)
+Program/service descriptions
+Testimonials (optional)
+8. SEO & Meta Tags Updates
+Update meta tags for each page
+Create separate sitemaps for each sub-site
+Add Open Graph images for each niche
+Update title tags:
+Landing: "Mik3verse - Creative Portfolio Hub"
+Videography: "Mik3shotit - Professional Videography"
+Tech: "[Name] - Full Stack Developer Portfolio"
+Fitness: "[Name] - Fitness & Lifestyle"
+9. Development Phases (Suggested)
+Phase 1: Structure & Routing
+
+Set up React Router
+Create page components
+Implement basic navigation
+Test routing functionality
+Phase 2: Landing Page
+
+Design and implement Mik3verse hero
+Create 3D parallax navigation buttons
+Add scroll-reveal animations
+Implement mouse tracking for tilt effect
+Phase 3: Migrate Existing Content
+
+Move current App.jsx content to VideographyPage.jsx
+Update navigation to work with routing
+Test all existing functionality
+Ensure no regressions
+Phase 4: Tech Portfolio Page
+
+Build all required sections
+Implement CV section with download
+Create project cards with filtering
+Style with tech-specific theme
+Phase 5: Fitness Portfolio Page
+
+Build all required sections
+Create content gallery
+Implement category filtering
+Style with fitness-specific theme
+Phase 6: Polish & Optimization
+
+Cross-page consistency check
+Mobile responsiveness verification
+Performance optimization
+SEO updates
+Final testing across all pages
+10. Acceptance Criteria
+✅ Landing page loads with animated 3D parallax buttons
+✅ All three buttons navigate to correct sub-pages
+✅ Each sub-page maintains design consistency while feeling unique
+✅ Tech portfolio includes clear, accessible CV section
+✅ All pages are fully responsive (mobile to desktop)
+✅ No regressions in existing videography portfolio functionality
+✅ Smooth page transitions between routes
+✅ SEO meta tags updated for all pages
+✅ All animations are performant (60fps)
+✅ Back navigation works correctly from sub-pages to landing
+✅ Code is well-documented with searchable keywords
+
+11. Nice-to-Have Features (Optional)
+Page transition animations (fade, slide, morph)
+Shared element transitions between pages
+Preloader/splash screen for landing page
+Easter eggs or hidden interactions
+Dark mode toggle (if not already default)
+Analytics tracking per sub-site
+Social media share functionality per page
+Print-friendly CV layout

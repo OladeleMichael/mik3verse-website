@@ -1,0 +1,817 @@
+﻿/* ====================================================================
+   TAILWIND CSS DIRECTIVES
+   ================================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====================================================================
+   GLOBAL RESET & CUSTOM STYLES
+   ================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --header-bg-dark: #2B2B0B;
+  --header-bg-light: #2F2F0A;
+  --neon-yellow: #D6E56E;
+  --terminal-bg: #000000;
+  --amber-glow: #FFB400;
+  --cyan-glow: #00D9FF;
+  --orange-glow: #FF6B35;
+  --olive-glow: #6B8E23;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Neuropol X Header Styles */
+.header-title {
+  font-family: 'NeuropolX', sans-serif;
+  color: var(--neon-yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+.header-glow {
+  text-shadow: 
+    0 0 10px rgba(214, 229, 110, 0.3),
+    0 0 20px rgba(214, 229, 110, 0.2),
+    0 0 30px rgba(214, 229, 110, 0.1);
+}
+
+/* VT323 Terminal Styles */
+.terminal {
+  font-family: 'VT323', monospace;
+  color: var(--amber-glow);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 1.1em;
+}
+
+.terminal-glow {
+  text-shadow: 
+    0 0 8px rgba(255, 180, 0, 0.6),
+    0 0 15px rgba(255, 180, 0, 0.4),
+    0 0 25px rgba(255, 180, 0, 0.2);
+}
+
+.terminal-border {
+  border: 2px solid var(--amber-glow);
+  box-shadow: 
+    0 0 10px rgba(255, 180, 0, 0.3),
+    inset 0 0 10px rgba(255, 180, 0, 0.1);
+}
+
+/* Cyan Color Variants */
+.text-cyan-glow {
+  color: var(--cyan-glow);
+}
+
+.text-cyan-glow\/60 {
+  color: rgba(0, 217, 255, 0.6);
+}
+
+.text-cyan-glow\/70 {
+  color: rgba(0, 217, 255, 0.7);
+}
+
+.text-cyan-glow\/50 {
+  color: rgba(0, 217, 255, 0.5);
+}
+
+.border-cyan-glow\/30 {
+  border-color: rgba(0, 217, 255, 0.3);
+}
+
+.bg-cyan-glow\/10 {
+  background-color: rgba(0, 217, 255, 0.1);
+}
+
+.bg-cyan-glow\/20 {
+  background-color: rgba(0, 217, 255, 0.2);
+}
+
+/* Orange Color Variants */
+.text-orange-glow {
+  color: var(--orange-glow);
+}
+
+.text-orange-glow\/60 {
+  color: rgba(255, 107, 53, 0.6);
+}
+
+.text-orange-glow\/70 {
+  color: rgba(255, 107, 53, 0.7);
+}
+
+.text-orange-glow\/50 {
+  color: rgba(255, 107, 53, 0.5);
+}
+
+.border-orange-glow\/30 {
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+.bg-orange-glow\/10 {
+  background-color: rgba(255, 107, 53, 0.1);
+}
+
+.bg-orange-glow\/20 {
+  background-color: rgba(255, 107, 53, 0.2);
+}
+
+/* Background Gradients */
+.bg-dark-olive-gradient {
+  background: linear-gradient(135deg, #2B2B0B 0%, #2F2F0A 50%, #2B2B0B 100%);
+}
+
+.bg-terminal {
+  background: #000000;
+  position: relative;
+}
+
+.bg-terminal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 180, 0, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(255, 180, 0, 0.03) 3px
+    );
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Video background */
+.video-bg {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.7) contrast(1.1);
+}
+
+/* Scanline effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(transparent, rgba(255, 180, 0, 0.3), transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* Neon button */
+.neon-button {
+  position: relative;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  border: 2px solid var(--amber-glow);
+  color: var(--amber-glow);
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.neon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--amber-glow);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.neon-button:hover {
+  color: #000000;
+  box-shadow: 
+    0 0 20px rgba(255, 180, 0, 0.6),
+    inset 0 0 20px rgba(255, 180, 0, 0.2);
+}
+
+.neon-button:hover::before {
+  left: 0;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 180, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 180, 0, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Cinematic smooth scrolling */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Parallax section transitions */
+.parallax-section {
+  transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Advanced smooth scrolling for webkit browsers */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Catalogue/Portfolio specific styles */
+.portfolio-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-image-overlay {
+  opacity: 1;
+}
+
+/* Parallax effect for backgrounds */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Enhanced backdrop blur for glass morphism */
+.glass-effect {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Catalogue grid system */
+.catalogue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Image reveal animation */
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.image-reveal {
+  animation: imageReveal 0.6s ease-out;
+}
+
+/* Ken Burns effect for static images */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate(-5%, -5%);
+  }
+}
+
+.ken-burns {
+  animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+/* Vignette effect */
+.vignette {
+  position: relative;
+}
+
+.vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+/* Responsive aspect ratio handling */
+video,
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure videos and images cover their containers properly on all devices */
+.object-cover {
+  object-fit: cover !important;
+}
+
+.object-center {
+  object-position: center center !important;
+}
+
+/* Prevent aspect ratio distortion on different orientations */
+@media (orientation: portrait) {
+  video,
+  img {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+@media (orientation: landscape) {
+  video,
+  img {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+/* Mobile-specific video/image optimization */
+@media (max-width: 640px) {
+  video,
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  
+  /* Ensure full-screen hero video covers properly */
+  header video,
+  header img {
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
+/* Tablet optimization */
+@media (min-width: 641px) and (max-width: 1024px) {
+  video,
+  img {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+/* Prevent layout shift during video/image loading */
+.aspect-video {
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+/* Smooth transitions for aspect ratio changes */
+video,
+img {
+  transition: object-position 0.3s ease;
+}
+
+/* ======================================
+   FUTURISTIC CAROUSEL STYLES
+   ====================================== */
+
+/* Carousel container optimization */
+.carousel-container {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Holographic scan effect */
+@keyframes holographic-scan {
+  0%, 100% { 
+    transform: translateY(0) scaleX(1);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateY(50%) scaleX(1.05);
+    opacity: 0.6;
+  }
+}
+
+/* Pulsing glow animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(214, 229, 110, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 180, 0, 0.5), 
+                inset 0 0 20px rgba(214, 229, 110, 0.2);
+  }
+}
+
+/* Corner accent animations */
+@keyframes corner-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Carousel navigation dots */
+.carousel-dot {
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.carousel-dot:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 180, 0, 0.6);
+}
+
+/* Media loading states */
+.carousel-media {
+  animation: fade-in-scale 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Smooth GPU-accelerated transforms */
+.carousel-3d {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Mobile carousel optimizations */
+@media (max-width: 640px) {
+  .carousel-container {
+    perspective: 500px; /* Reduce for smaller screens */
+  }
+  
+  /* Simplify effects on mobile for performance */
+  .carousel-media {
+    animation-duration: 0.4s;
+  }
+}
+
+/* High-performance mode for low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-container {
+    perspective: none;
+  }
+  
+  .carousel-media {
+    animation: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===================================================================
+   OLIVE GREEN COLOR UTILITIES (LANDING PAGE)
+   =================================================================== */
+.text-olive-glow {
+  color: #6B8E23;
+}
+
+.text-olive-glow\/60 {
+  color: rgba(107, 142, 35, 0.6);
+}
+
+.text-olive-glow\/70 {
+  color: rgba(107, 142, 35, 0.7);
+}
+
+.text-olive-glow\/50 {
+  color: rgba(107, 142, 35, 0.5);
+}
+
+.border-olive-glow\/30 {
+  border-color: rgba(107, 142, 35, 0.3);
+}
+
+.bg-olive-glow\/10 {
+  background-color: rgba(107, 142, 35, 0.1);
+}
+
+.bg-olive-glow\/20 {
+  background-color: rgba(107, 142, 35, 0.2);
+}
+
+/* ====================================================================
+   RETRO VIDEO LOADING ANIMATIONS - DYNAMIC COLOR THEMING
+   ================================================================== */
+
+/* Video Loading Container */
+.video-loading-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  overflow: hidden;
+  --loader-color: #FFB400; /* Default amber - overridden by component */
+  --loader-color-rgb: 255, 180, 0; /* Default RGB - overridden by component */
+}
+
+/* Retro CRT Loading Screen */
+.retro-video-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0a0a0a 0%, #000000 50%, #0a0a0a 100%);
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.5s ease-out;
+}
+
+.retro-video-loader.loaded {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Animated Scanlines Effect - Uses dynamic color */
+.retro-video-loader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(var(--loader-color-rgb), 0.03) 0px,
+    rgba(var(--loader-color-rgb), 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  animation: scanlines 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Pulsing Grid Background - Uses dynamic color */
+.retro-video-loader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(var(--loader-color-rgb), 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--loader-color-rgb), 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Terminal-Style Loading Text - Uses dynamic color */
+.retro-loader-text {
+  font-family: 'Courier New', monospace;
+  font-size: 1.25rem;
+  color: var(--loader-color);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  text-shadow: 
+    0 0 10px rgba(var(--loader-color-rgb), 0.8),
+    0 0 20px rgba(var(--loader-color-rgb), 0.5),
+    0 0 30px rgba(var(--loader-color-rgb), 0.3);
+  animation: text-flicker 2s linear infinite;
+  z-index: 11;
+  margin-bottom: 2rem;
+}
+
+/* Animated Brackets */
+.retro-loader-brackets {
+  display: inline-block;
+  animation: bracket-pulse 1.5s ease-in-out infinite;
+}
+
+/* Spinning Retro Loader Circle - Uses dynamic color */
+.retro-spinner {
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(var(--loader-color-rgb), 0.1);
+  border-top-color: var(--loader-color);
+  border-radius: 50%;
+  animation: retro-spin 1s linear infinite;
+  box-shadow: 
+    0 0 20px rgba(var(--loader-color-rgb), 0.4),
+    inset 0 0 20px rgba(var(--loader-color-rgb), 0.2);
+  z-index: 11;
+  margin-bottom: 2rem;
+}
+
+/* Pixel-Style Progress Bar - Uses dynamic color */
+.retro-progress-bar {
+  width: 200px;
+  height: 8px;
+  background: rgba(var(--loader-color-rgb), 0.1);
+  border: 2px solid var(--loader-color);
+  box-shadow: 
+    0 0 10px rgba(var(--loader-color-rgb), 0.5),
+    inset 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  z-index: 11;
+}
+
+.retro-progress-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--loader-color) 0%,
+    var(--loader-color) 50%,
+    var(--loader-color) 100%
+  );
+  box-shadow: 0 0 15px rgba(var(--loader-color-rgb), 0.8);
+  animation: progress-fill 2s ease-in-out infinite;
+  transform-origin: left;
+  opacity: 0.9;
+}
+
+/* VHS Tracking Lines - Uses dynamic color */
+.vhs-tracking {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: rgba(var(--loader-color-rgb), 0.3);
+  box-shadow: 0 0 10px rgba(var(--loader-color-rgb), 0.5);
+  animation: vhs-tracking 3s linear infinite;
+  z-index: 12;
+}
+
+/* Glitch Effect on Load */
+.loader-glitch {
+  animation: loader-glitch-effect 0.3s infinite;
+}
+
+/* ====================================================================
+   KEYFRAME ANIMATIONS
+   ================================================================== */
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(10px); }
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes text-flicker {
+  0%, 100% { opacity: 1; }
+  41%, 43% { opacity: 0.8; }
+  45%, 47% { opacity: 1; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes bracket-pulse {
+  0%, 100% { transform: scaleX(1); opacity: 1; }
+  50% { transform: scaleX(1.2); opacity: 0.7; }
+}
+
+@keyframes retro-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes progress-fill {
+  0% { transform: scaleX(0.3); }
+  50% { transform: scaleX(0.7); }
+  100% { transform: scaleX(0.3); }
+}
+
+@keyframes vhs-tracking {
+  0% { top: 0%; opacity: 0; }
+  50% { opacity: 0.7; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes loader-glitch-effect {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+}
+
+/* ====================================================================
+   TYPING CURSOR ANIMATION - SERVICES CARDS
+   ================================================================== */
+
+/* Typing text container */
+.typing-text-container {
+  display: inline-block;
+  position: relative;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+}
+
+/* Blinking cursor */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: var(--amber-glow);
+  margin-left: 2px;
+  animation: cursor-blink 1s infinite;
+  box-shadow: 0 0 10px rgba(255, 180, 0, 0.8);
+}
+
+/* Cursor blink animation */
+@keyframes cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Text with glow effect */
+.typing-glow-text {
+  color: var(--amber-glow);
+  text-shadow: 
+    0 0 10px rgba(255, 180, 0, 0.8),
+    0 0 20px rgba(255, 180, 0, 0.5),
+    0 0 30px rgba(255, 180, 0, 0.3);
+  animation: text-glow-pulse 2s ease-in-out infinite;
+}
+
+/* Glow pulse animation */
+@keyframes text-glow-pulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px rgba(255, 180, 0, 0.8),
+      0 0 20px rgba(255, 180, 0, 0.5),
+      0 0 30px rgba(255, 180, 0, 0.3);
+  }
+  50% {
+    text-shadow: 
+      0 0 15px rgba(255, 180, 0, 1),
+      0 0 30px rgba(255, 180, 0, 0.7),
+      0 0 45px rgba(255, 180, 0, 0.5);
+  }
+}
+
+
+
