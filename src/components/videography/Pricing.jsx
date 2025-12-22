@@ -12,6 +12,8 @@
    - Responsive grid layout
    ================================================================== */
 import React from 'react'
+// Asset configuration - S3 bucket URL (configurable via VITE_ASSETS_BASE_URL env variable)
+import { ASSETS_BASE_URL } from '../../config/assets'
 import { motion } from 'framer-motion'
 import VideoLoader from '../shared/VideoLoader'
 
@@ -97,7 +99,7 @@ export default function Pricing({ backgroundImage }) {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/logo-anime.mp4" type="video/mp4" />
+            <source src={`${ASSETS_BASE_URL}/assets/videography/logo-anime.mp4`} type="video/mp4" />
             {/* PRICING_BG_VIDEO_PATH - Background video source */}
           </video>
         </VideoLoader>

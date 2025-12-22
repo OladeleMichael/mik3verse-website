@@ -1,4 +1,4 @@
-Ôªø/* ====================================================================
+/* ====================================================================
    FOOTER COMPONENT (MIK3VERSE - PAGE SPECIFIC)
    ====================================================================
    SEARCH KEYWORDS:
@@ -52,7 +52,7 @@ export default function Footer({ page = 'landing' }) {
       case 'tech':
         return {
           title: 'MIK3.DEV',
-          tagline: 'Code ‚Ä¢ Create ‚Ä¢ Deploy',
+          tagline: 'Code ï Create ï Deploy',
           description: 'Building Digital Solutions That Scale',
           color: 'cyan-glow',
           colorHex: '#00D9FF',
@@ -65,7 +65,7 @@ export default function Footer({ page = 'landing' }) {
       case 'fitness':
         return {
           title: 'MIK3.FIT',
-          tagline: 'Train ‚Ä¢ Transform ‚Ä¢ Triumph',
+          tagline: 'Train ï Transform ï Triumph',
           description: 'Your Journey To Peak Performance',
           color: 'orange-glow',
           colorHex: '#FF6B35',
@@ -78,7 +78,7 @@ export default function Footer({ page = 'landing' }) {
       case 'landing':
         return {
           title: 'MIK3VERSE',
-          tagline: 'Creative ‚Ä¢ Technical ‚Ä¢ Physical',
+          tagline: 'Creative ï Technical ï Physical',
           description: 'A Multi-Dimensional Portfolio Experience',
           color: 'olive-glow',
           colorHex: '#6B8E23',
@@ -91,7 +91,7 @@ export default function Footer({ page = 'landing' }) {
       default:
         return {
           title: 'MIK3VERSE',
-          tagline: 'Creative ‚Ä¢ Technical ‚Ä¢ Physical',
+          tagline: 'Creative ï Technical ï Physical',
           description: 'A Multi-Dimensional Portfolio Experience',
           color: 'olive-glow',
           colorHex: '#6B8E23',
@@ -181,7 +181,7 @@ export default function Footer({ page = 'landing' }) {
                       e.currentTarget.style.textShadow = 'none'
                     }}
                   >
-                    ‚Üê BACK TO MIK3VERSE HUB
+                    ? BACK TO MIK3VERSE HUB
                   </button>
                 </li>
               )}

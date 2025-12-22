@@ -17,6 +17,8 @@
    - Always includes "Back to MIK3VERSE" link
    ================================================================== */
 import React, { useState, useEffect } from 'react'
+// Asset configuration - S3 bucket URL (configurable via VITE_ASSETS_BASE_URL env variable)
+import { ASSETS_BASE_URL } from '../../config/assets'
 import { motion } from 'framer-motion'
 import { useNavigate, useLocation } from 'react-router-dom'
 
@@ -192,7 +194,7 @@ export default function Header({ page = 'videography' }) {
               onClick={handleHomeClick}
             >
               <img 
-                src="https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/shared/logo-anime-header.gif"
+                src={`${ASSETS_BASE_URL}/assets/shared/logo-anime-header.gif`}
                 alt="MIK3VERSE Logo"
                 className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
               />

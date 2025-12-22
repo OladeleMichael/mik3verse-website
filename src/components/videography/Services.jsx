@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
+// Asset configuration - S3 bucket URL (configurable via VITE_ASSETS_BASE_URL env variable)
+import { ASSETS_BASE_URL } from '../../config/assets'
 import { motion, AnimatePresence } from 'framer-motion'
 import VideoLoader from '../shared/VideoLoader'
 import TypingTextAnimation from '../shared/TypingTextAnimation'
@@ -16,7 +18,7 @@ import TypingTextAnimation from '../shared/TypingTextAnimation'
    Instructions:
    - Each service has 3 media items (video or image)
    - Supported types: 'video' or 'image'
-   - Path format: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/filename.ext'
+   - Path format: `${ASSETS_BASE_URL}/assets/filename.ext`
    - Recommended: Keep 3 items per service for consistent carousel timing
    - Video formats: .mp4, .webm
    - Image formats: .jpg, .png, .webp
@@ -26,30 +28,30 @@ import TypingTextAnimation from '../shared/TypingTextAnimation'
 const serviceMedia = {
   // WEDDING_CAROUSEL_MEDIA - Wedding Films carousel (3 items)
   'Wedding Films': [
-    { type: 'image', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/wedding.jpg', alt: 'Wedding Ceremony' },           // Item 1
-    { type: 'video', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/TerryandAmankwa.mp4', alt: 'Wedding Film' },      // Item 2
-    { type: 'image', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/diego.PNG', alt: 'Wedding Portrait' },            // Item 3
+    { type: 'image', src: `${ASSETS_BASE_URL}/assets/videography/wedding.jpg`, alt: 'Wedding Ceremony' },           // Item 1
+    { type: 'video', src: `${ASSETS_BASE_URL}/assets/videography/TerryandAmankwa.mp4`, alt: 'Wedding Film' },      // Item 2
+    { type: 'image', src: `${ASSETS_BASE_URL}/assets/videography/diego.PNG`, alt: 'Wedding Portrait' },            // Item 3
   ],
   
   // CORPORATE_CAROUSEL_MEDIA - Corporate Videos carousel (3 items)
   'Corporate Videos': [
-    { type: 'video', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/HBH_final_2.mp4', alt: 'Corporate Production' },  // Item 1
-    { type: 'video', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/visuals.mp4', alt: 'Brand Story' },               // Item 2
-    { type: 'image', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/DSC00509.JPG', alt: 'Corporate Event' },          // Item 3
+    { type: 'video', src: `${ASSETS_BASE_URL}/assets/videography/HBH_final_2.mp4`, alt: 'Corporate Production' },  // Item 1
+    { type: 'video', src: `${ASSETS_BASE_URL}/assets/videography/visuals.mp4`, alt: 'Brand Story' },               // Item 2
+    { type: 'image', src: `${ASSETS_BASE_URL}/assets/videography/DSC00509.JPG`, alt: 'Corporate Event' },          // Item 3
   ],
   
   // DOCUMENTARY_CAROUSEL_MEDIA - Documentary carousel (3 items)
   'Documentary': [
-    { type: 'video', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/black_model_vid.mp4', alt: 'Documentary Film' },  // Item 1
-    { type: 'image', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/big_slap-22.jpg', alt: 'Documentary Scene' },     // Item 2
-    { type: 'video', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/final_export.mp4', alt: 'Documentary Story' },    // Item 3
+    { type: 'video', src: `${ASSETS_BASE_URL}/assets/videography/black_model_vid.mp4`, alt: 'Documentary Film' },  // Item 1
+    { type: 'image', src: `${ASSETS_BASE_URL}/assets/videography/big_slap-22.jpg`, alt: 'Documentary Scene' },     // Item 2
+    { type: 'video', src: `${ASSETS_BASE_URL}/assets/videography/final_export.mp4`, alt: 'Documentary Story' },    // Item 3
   ],
   
   // MUSIC_CAROUSEL_MEDIA - Music Videos carousel (3 items)
   'Music Videos': [
-    { type: 'video', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/porche-reel.mp4', alt: 'Music Video Production' }, // Item 1
-    { type: 'video', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/ig_reel.mp4', alt: 'Music Video' },                // Item 2
-    { type: 'image', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/car.png', alt: 'Music Video Scene' },              // Item 3
+    { type: 'video', src: `${ASSETS_BASE_URL}/assets/videography/porche-reel.mp4`, alt: 'Music Video Production' }, // Item 1
+    { type: 'video', src: `${ASSETS_BASE_URL}/assets/videography/ig_reel.mp4`, alt: 'Music Video' },                // Item 2
+    { type: 'image', src: `${ASSETS_BASE_URL}/assets/videography/car.png`, alt: 'Music Video Scene' },              // Item 3
   ],
 }
 

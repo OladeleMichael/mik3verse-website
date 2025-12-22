@@ -1,4 +1,4 @@
-﻿/* ====================================================================
+/* ====================================================================
    HERO HEADER COMPONENT
    ====================================================================
    SEARCH KEYWORDS:
@@ -136,7 +136,7 @@ export default function HeroHeader({ media, onViewGallery }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90" />
         {/* HERO_OVERLAY_GRADIENT - Darkens media for text readability */}
-        {/* from-black/70 (top) → via-black/40 (middle) → to-black/90 (bottom) */}
+        {/* from-black/70 (top) ? via-black/40 (middle) ? to-black/90 (bottom) */}
       </div>
       
       {/* ====================================================================
@@ -149,10 +149,10 @@ export default function HeroHeader({ media, onViewGallery }) {
          Content Layout:
          - Centered vertically and horizontally
          - z-10: Above background media layer
-         - px-3 → px-4 → px-6: Responsive horizontal padding
+         - px-3 ? px-4 ? px-6: Responsive horizontal padding
          ================================================================== */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-3 sm:px-4 md:px-6">
-        {/* HERO_CONTENT_PADDING - Responsive: 12px → 16px → 24px */}
+        {/* HERO_CONTENT_PADDING - Responsive: 12px ? 16px ? 24px */}
         
         {/* ====================================================================
            HERO TITLE SECTION
@@ -164,7 +164,7 @@ export default function HeroHeader({ media, onViewGallery }) {
            
            Title Styling:
            - MIK3VERSE brand name
-           - Responsive sizing: text-4xl → text-9xl
+           - Responsive sizing: text-4xl ? text-9xl
            - Glitch effect applied via class
            - Neon yellow underline accent
            ================================================================== */}
@@ -181,13 +181,13 @@ export default function HeroHeader({ media, onViewGallery }) {
                 Medium: text-7xl = 72px
                 Large: text-8xl = 96px
                 XLarge: text-9xl = 128px */}
-            {/* HERO_TITLE_MARGIN - mb-4 → mb-5 → mb-6 (16px → 20px → 24px) */}
+            {/* HERO_TITLE_MARGIN - mb-4 ? mb-5 ? mb-6 (16px ? 20px ? 24px) */}
             MIK3VERSE
             {/* HERO_TITLE_TEXT - Brand name, change here */}
           </h1>
           <div className="h-0.5 sm:h-1 w-20 sm:w-24 md:w-32 mx-auto bg-neon-yellow shadow-[0_0_10px_rgba(214,229,110,0.5)] mb-6 sm:mb-7 md:mb-8" />
-          {/* HERO_TITLE_UNDERLINE_HEIGHT - h-0.5 → h-1 (2px → 4px) */}
-          {/* HERO_TITLE_UNDERLINE_WIDTH - w-20 → w-24 → w-32 (80px → 96px → 128px) */}
+          {/* HERO_TITLE_UNDERLINE_HEIGHT - h-0.5 ? h-1 (2px ? 4px) */}
+          {/* HERO_TITLE_UNDERLINE_WIDTH - w-20 ? w-24 ? w-32 (80px ? 96px ? 128px) */}
           {/* HERO_TITLE_UNDERLINE_COLOR - bg-neon-yellow = #D6E56E */}
         </motion.div>
         
@@ -215,7 +215,7 @@ export default function HeroHeader({ media, onViewGallery }) {
               Small: text-lg = 18px
               Medium: text-2xl = 24px
               Large: text-3xl = 30px */}
-          {/* HERO_TAGLINE_MARGIN - mb-8 → mb-10 → mb-12 (32px → 40px → 48px) */}
+          {/* HERO_TAGLINE_MARGIN - mb-8 ? mb-10 ? mb-12 (32px ? 40px ? 48px) */}
           {/* HERO_TAGLINE_MAX_WIDTH - max-w-2xl = 672px */}
           {typedText}
           <span className="animate-pulse">|</span>
@@ -271,8 +271,8 @@ export default function HeroHeader({ media, onViewGallery }) {
           transition={{ delay: 1.2, duration: 2, repeat: Infinity }}  // HERO_SCROLL_ANIMATION_SPEED
           className="absolute bottom-8 sm:bottom-10 terminal text-amber-glow text-base sm:text-lg md:text-xl"
         >
-          {/* HERO_SCROLL_POSITION - bottom-8 → bottom-10 (32px → 40px from bottom) */}
-          {/* HERO_SCROLL_SIZE - text-base → text-lg → text-xl (16px → 18px → 20px) */}
+          {/* HERO_SCROLL_POSITION - bottom-8 ? bottom-10 (32px ? 40px from bottom) */}
+          {/* HERO_SCROLL_SIZE - text-base ? text-lg ? text-xl (16px ? 18px ? 20px) */}
           {/* HERO_SCROLL_COLOR - text-amber-glow = #FFB400 */}
            Scroll
         </motion.div>

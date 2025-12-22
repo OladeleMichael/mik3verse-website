@@ -14,6 +14,8 @@
    Note: This is the migrated content from the original single-page app
    ================================================================== */
 import React, { useState } from 'react'
+// Asset configuration - S3 bucket URL (configurable via VITE_ASSETS_BASE_URL env variable)
+import { ASSETS_BASE_URL } from '../config/assets'
 import { motion } from 'framer-motion'
 import Header from '../components/shared/Header'
 import HeroHeader from '../components/videography/HeroHeader'
@@ -45,43 +47,43 @@ export default function VideographyPage() {
   const media = [
     { 
       type: 'video',
-      src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/hero.mp4'
+      src: `${ASSETS_BASE_URL}/assets/videography/hero.mp4`
     },
     { 
       type: 'image',
-      src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/DSC00033.JPG'
+      src: `${ASSETS_BASE_URL}/assets/videography/DSC00033.JPG`
     },
     { 
       type: 'video',
-      src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/final_export.mp4'
+      src: `${ASSETS_BASE_URL}/assets/videography/final_export.mp4`
     },
     { 
       type: 'video',
-      src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/bigslap.mp4'
+      src: `${ASSETS_BASE_URL}/assets/videography/bigslap.mp4`
     },
     { 
       type: 'video',
-      src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/HBH_final_2.mp4',
-      poster: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/big_slap-22.jpg'
+      src: `${ASSETS_BASE_URL}/assets/videography/HBH_final_2.mp4`,
+      poster: `${ASSETS_BASE_URL}/assets/videography/big_slap-22.jpg`
     },
     { 
       type: 'image',
-      src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/DSC00724.JPG'
+      src: `${ASSETS_BASE_URL}/assets/videography/DSC00724.JPG`
     },
     { 
       type: 'video',
-      src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/porche-reel.mp4',
-      poster: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/car.png'
+      src: `${ASSETS_BASE_URL}/assets/videography/porche-reel.mp4`,
+      poster: `${ASSETS_BASE_URL}/assets/videography/car.png`
     },
     { 
       type: 'video',
-      src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/TerryandAmankwa.mp4',
-      poster: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/wedding.jpg'
+      src: `${ASSETS_BASE_URL}/assets/videography/TerryandAmankwa.mp4`,
+      poster: `${ASSETS_BASE_URL}/assets/videography/wedding.jpg`
     },
     { 
       type: 'video',
-      src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/ig_reel.mp4',
-      poster: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/IMG_0156.PNG'
+      src: `${ASSETS_BASE_URL}/assets/videography/ig_reel.mp4`,
+      poster: `${ASSETS_BASE_URL}/assets/videography/IMG_0156.PNG`
     },
   ]
   
@@ -89,10 +91,10 @@ export default function VideographyPage() {
      SECTION BACKGROUND IMAGES
      ================================================================== */
   const sectionBackgrounds = {
-    about: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/clip1-poster.jpg',
-    services: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/DSC00033.JPG',
-    pricing: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/DSC00724.JPG',
-    contact: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/videography/hero.mp4'
+    about: `${ASSETS_BASE_URL}/assets/videography/clip1-poster.jpg`,
+    services: `${ASSETS_BASE_URL}/assets/videography/DSC00033.JPG`,
+    pricing: `${ASSETS_BASE_URL}/assets/videography/DSC00724.JPG`,
+    contact: `${ASSETS_BASE_URL}/assets/videography/hero.mp4`
   }
 
   return (

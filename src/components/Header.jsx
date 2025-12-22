@@ -13,6 +13,8 @@
    - Scroll-based styling changes
    ================================================================== */
 import React, { useState, useEffect } from 'react'
+// Asset configuration - S3 bucket URL (configurable via VITE_ASSETS_BASE_URL env variable)
+import { ASSETS_BASE_URL } from '../config/assets'
 import { motion } from 'framer-motion'
 
 export default function Header() {
@@ -115,7 +117,7 @@ export default function Header() {
             onClick={() => scrollToSection('hero')}
           >
             <img 
-              src="https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/logo-anime-header.gif"  // HEADER_LOGO_PATH
+              src={`${ASSETS_BASE_URL}/assets/logo-anime-header.gif`}  // HEADER_LOGO_PATH
               alt="MIK3VERSE Logo"
               className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain"
               /* HEADER_LOGO_SIZE - Responsive heights:

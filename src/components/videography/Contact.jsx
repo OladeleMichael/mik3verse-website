@@ -1,4 +1,4 @@
-﻿/* ====================================================================
+/* ====================================================================
    CONTACT COMPONENT
    ====================================================================
    SEARCH KEYWORDS:
@@ -148,7 +148,7 @@ Message: ${form.message}
           {/* CONTACT_TITLE_MARGIN - mb-16 = 64px spacing below title */}
           {/* CONTACT_TITLE_MAX_WIDTH - max-w-3xl = 768px */}
           <h2 className="terminal terminal-glow text-5xl md:text-6xl mb-4">
-            {/* CONTACT_TITLE_SIZE - text-5xl → md:text-6xl (48px → 60px) */}
+            {/* CONTACT_TITLE_SIZE - text-5xl ? md:text-6xl (48px ? 60px) */}
             &gt; Get In Touch_
             {/* CONTACT_TITLE_TEXT - Section heading */}
           </h2>
@@ -188,7 +188,7 @@ Message: ${form.message}
               className="terminal-border bg-amber-glow/10 p-6 mb-6 backdrop-blur-sm"
             >
               <p className="text-amber-glow font-terminal text-xl mb-4">
-                ✓ MESSAGE SENT SUCCESSFULLY
+                ? MESSAGE SENT SUCCESSFULLY
               </p>
               <p className="text-amber-glow/80 font-terminal text-sm mb-2">
                 Thank you for reaching out to MIK3SHOTIT!
@@ -213,7 +213,7 @@ Message: ${form.message}
               className="terminal-border bg-red-500/10 border-red-500/50 p-6 mb-6 backdrop-blur-sm"
             >
               <p className="text-red-500 font-terminal text-lg mb-2">
-                ✗ ERROR
+                ? ERROR
               </p>
               <p className="text-red-400 font-terminal text-sm">
                 {status.error}
@@ -286,7 +286,7 @@ Message: ${form.message}
                 whileTap={!status.submitting ? { scale: 0.98 } : {}}    // CONTACT_BUTTON_TAP_SCALE
                 className="neon-button w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {/* CONTACT_BUTTON_WIDTH - w-full → md:w-auto (full width on mobile, auto on desktop) */}
+                {/* CONTACT_BUTTON_WIDTH - w-full ? md:w-auto (full width on mobile, auto on desktop) */}
                 {status.submitting ? '[ SENDING... ]' : '[ Send Message ]'}
               </motion.button>
             </form>

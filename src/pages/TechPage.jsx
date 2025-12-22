@@ -13,6 +13,8 @@
    - Tech-inspired cyberpunk aesthetic (blue/cyan theme)
    ================================================================== */
 import React, { useState } from 'react'
+// Asset configuration - S3 bucket URL (configurable via VITE_ASSETS_BASE_URL env variable)
+import { ASSETS_BASE_URL } from '../config/assets'
 import { motion } from 'framer-motion'
 import Header from '../components/shared/Header'
 import Footer from '../components/shared/Footer'
@@ -42,7 +44,7 @@ export default function TechPage() {
       title: 'Project Alpha',
       description: 'Full-stack web application with real-time features',
       tech: ['React', 'Node.js', 'MongoDB'],
-      image: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/tech/DSC00033.JPG',
+      image: `${ASSETS_BASE_URL}/assets/tech/DSC00033.JPG`,
       github: '#',
       demo: '#'
     },
@@ -50,7 +52,7 @@ export default function TechPage() {
       title: 'Project Beta',
       description: 'Machine learning powered recommendation system',
       tech: ['Python', 'TensorFlow', 'FastAPI'],
-      image: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/tech/DSC00509.JPG',
+      image: `${ASSETS_BASE_URL}/assets/tech/DSC00509.JPG`,
       github: '#',
       demo: '#'
     },
@@ -58,7 +60,7 @@ export default function TechPage() {
       title: 'Project Gamma',
       description: 'Mobile-first progressive web application',
       tech: ['React Native', 'Firebase', 'Redux'],
-      image: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/DSC00724.JPG',
+      image: `${ASSETS_BASE_URL}/assets/DSC00724.JPG`,
       github: '#',
       demo: '#'
     }

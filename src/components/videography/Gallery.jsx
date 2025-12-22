@@ -1,4 +1,4 @@
-﻿import React, { useRef } from 'react'
+import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
 import VideoLoader from '../shared/VideoLoader'
 
@@ -80,7 +80,7 @@ export default function Gallery({ media, onOpen }) {
           {/* GALLERY_TITLE_MARGIN - Title bottom spacing (mb-16 = 64px) */}
           {/* GALLERY_TITLE_CONTAINER_WIDTH - max-w-7xl = 1280px */}
           <h2 className="terminal terminal-glow text-5xl md:text-6xl mb-4">
-            {/* GALLERY_TITLE_SIZE - Font size: mobile(5xl) → desktop(6xl) */}
+            {/* GALLERY_TITLE_SIZE - Font size: mobile(5xl) ? desktop(6xl) */}
             &gt; Our Work_
           </h2>
           <div className="h-0.5 w-24 bg-amber-glow shadow-[0_0_10px_rgba(255,180,0,0.5)]" />
@@ -184,7 +184,7 @@ export default function Gallery({ media, onOpen }) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center">
                 {/* GALLERY_OVERLAY_GRADIENT - from-black/80 (bottom) to transparent (top) */}
                 {/* GALLERY_OVERLAY_TRANSITION - 300ms fade duration */}
-                <span className="terminal terminal-glow text-5xl mb-2">▶</span>
+                <span className="terminal terminal-glow text-5xl mb-2">?</span>
                 {/* GALLERY_PLAY_ICON_SIZE - text-5xl = 48px */}
                 {/* GALLERY_PLAY_ICON_MARGIN - mb-2 = 8px spacing */}
                 <span className="terminal text-amber-glow text-sm">[ View ]</span>

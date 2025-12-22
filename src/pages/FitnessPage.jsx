@@ -13,6 +13,8 @@
    - High-energy aesthetic (orange/red theme)
    ================================================================== */
 import React, { useState } from 'react'
+// Asset configuration - S3 bucket URL (configurable via VITE_ASSETS_BASE_URL env variable)
+import { ASSETS_BASE_URL } from '../config/assets'
 import { motion } from 'framer-motion'
 import Header from '../components/shared/Header'
 import Footer from '../components/shared/Footer'
@@ -27,12 +29,12 @@ export default function FitnessPage() {
      PLACEHOLDER CONTENT
      ================================================================== */
   const fitnessMedia = [
-    { type: 'image', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/fitness/DSC00033.JPG' },
-    { type: 'video', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/fitness/ig_reel.mp4' },
-    { type: 'image', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/fitness/DSC00509.JPG' },
-    { type: 'video', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/fitness/black_model_vid.mp4' },
-    { type: 'image', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/fitness/DSC00724.JPG' },
-    { type: 'video', src: 'https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/fitness/final_export.mp4' },
+    { type: 'image', src: `${ASSETS_BASE_URL}/assets/fitness/DSC00033.JPG` },
+    { type: 'video', src: `${ASSETS_BASE_URL}/assets/fitness/ig_reel.mp4` },
+    { type: 'image', src: `${ASSETS_BASE_URL}/assets/fitness/DSC00509.JPG` },
+    { type: 'video', src: `${ASSETS_BASE_URL}/assets/fitness/black_model_vid.mp4` },
+    { type: 'image', src: `${ASSETS_BASE_URL}/assets/fitness/DSC00724.JPG` },
+    { type: 'video', src: `${ASSETS_BASE_URL}/assets/fitness/final_export.mp4` },
   ]
 
   const programs = [
@@ -68,7 +70,7 @@ export default function FitnessPage() {
          ================================================================== */}
       <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://mik3verse-portfolio-assets.s3.eu-north-1.amazonaws.com/assets/fitness/DSC00033.JPG)' }} />
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(${ASSETS_BASE_URL}/assets/fitness/DSC00033.JPG)' }} />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black" />
         </div>
         <div className="absolute inset-0 grid-bg opacity-20" />
