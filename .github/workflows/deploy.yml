@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: http://13.62.51.206:3000
+      url: http://13.49.77.107:3000
     
     steps:
       - name: Deploy to EC2
@@ -71,7 +71,7 @@ jobs:
         if: success()
         run: |
           echo "✅ Production deployment successful!"
-          echo "🌐 Site: http://13.62.51.206:3000"
+          echo "🌐 Site: http://13.49.77.107:3000"
       
       - name: Rollback on Failure
         if: failure()
