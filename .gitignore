@@ -15,12 +15,21 @@ build
 !.env.example
 
 # AWS configuration (keep these local only)
+ec2-user-data.sh
 setup-aws-parameters.ps1
 setup-iam-role.ps1
 iam-policy.json
+admin-ssm-policy.json
 trust-policy.json
 *.pem
 *.ppk
+
+# Temporary scripts and files
+Prompt.txt
+fix-jsx-attributes.ps1
+fix-template-literals.ps1
+verify-config.ps1
+verify-simple.ps1
 
 # Logs
 npm-debug.log*
